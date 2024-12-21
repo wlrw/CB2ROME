@@ -432,19 +432,6 @@ if true then
                 _G.FlySpeed = Value
             end,
         })
-
-        Misc:CreateSection("Stuff")
-        Misc:CreateButton({
-            Name = "Infinite Cash",
-            Callback = function()
-                RunService.RenderStepped:Connect(function()
-                    if LocalPlayer and LocalPlayer.Parent then
-                        LocalPlayer.Cash.Value = 9550
-                    end
-                    task.wait()
-                end)
-            end,
-        })
     end
 
     do
@@ -456,7 +443,7 @@ if true then
             Range = {0, 120},
             Increment = 1,
             CurrentValue = 80,
-            Flag = "BhopSpeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+            Flag = "FOV", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
             Callback = function(Value)
                 _G.FieldOfView = Value
             end,
@@ -836,12 +823,18 @@ RunService.Heartbeat:Connect(function()
                 if not Highlight then
                     Highlight = Instance.new("Highlight")
                     Highlight.Parent = Player.Character
+                    Highlight.OutlineTransparency = 0.5
+                    Highlight.FillTransparency = 0.3
+                    Highlight.OutlineColor = Color3.fromRGB(0, 0, 0)
                 end
                 Highlight.FillColor = Player.TeamColor.Color
             else
                 if not Highlight then
                     Highlight = Instance.new("Highlight")
                     Highlight.Parent = Player.Character
+                    Highlight.OutlineTransparency = 0.5
+                    Highlight.FillTransparency = 0.3
+                    Highlight.OutlineColor = Color3.fromRGB(0, 0, 0)
                 end
                 Highlight.FillColor = ESPSettings.ChamsColor or Color3.fromRGB(200, 200, 200)
             end
@@ -853,3 +846,4 @@ RunService.Heartbeat:Connect(function()
         end
     end
 end)
+
