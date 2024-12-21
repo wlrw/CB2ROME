@@ -78,11 +78,10 @@ local Window = Library:CreateWindow({
     }
 })
 
-local Home = Window:CreateTab("Home", 4483362458) -- Title, Image
 local Combat = Window:CreateTab("Combat", 4483362458) -- Title, Image
 local Misc = Window:CreateTab("Misc", 4483362458) -- Title, Image
 local Visuals = Window:CreateTab("Visuals", 4483362458) -- Title, Image
-local World = Window:CreateTab("World", 4483362458) -- Title, Image
+local Credits = Window:CreateTab("Credits", 4483362458) -- Title, Image
 
 --// Version
 
@@ -112,9 +111,8 @@ if true then
     end
 
     do
-        --// Home
-        Home:CreateSection("Credits")
-        Home:CreateLabel("By @Feder_tion on roblox.")
+        Credits:CreateSection("Credits")
+        Credits:CreateLabel("By @Feder_tion on roblox.")
     end
 
     do
