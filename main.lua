@@ -98,7 +98,7 @@ if true then
         local Mag = math.huge
     
         for _, v in pairs(Players:GetPlayers()) do
-            if v.Character and v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart") and v ~= LocalPlayer and (v.Team ~= LocalPlayer.Team or (not AimSettings.TeamCheck)) then
+            if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") and v ~= LocalPlayer and (v.Team ~= LocalPlayer.Team or (not AimSettings.TeamCheck)) then
                 local Position = v.Character.Head.Position
                 local MagBuff = (Position - Ray:ClosestPoint(Position)).Magnitude
                 if MagBuff < Mag then
@@ -723,7 +723,7 @@ end)
 
 
 RunService.RenderStepped:Connect(function()
-    if LocalPlayer.Character ~= nil and LocalPlayer.Character.Humanoid.Health > 0 then
+    if LocalPlayer.Character ~= nil and LocalPlayer.Character:FindFirstChild("Humanoid") and LocalPlayer.Character.Humanoid.Health > 0 then
         if _G.SpinBot then
             LocalPlayer.Character.Humanoid.AutoRotate = false
             LocalPlayer.Character.HumanoidRootPart.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(_G.Speed or 50), 0)
